@@ -25,7 +25,7 @@ from .forms import RegistrationCodeForm, NewPasswordForm, AddToSectionForm
 # for models
 from .models import User, ResetPassword, Registration, Session, Match, AI, Game, Stats # 12/11/2024, added Stats
 
-import sys; sys.path.append('/home/ciss450othello/mysite/') # ?????? why cannot find db_util
+import sys; sys.path.append('/home/ciss450othello2/mysite/') # ?????? why cannot find db_util
 import db_util
 
 # utility functions
@@ -939,7 +939,7 @@ def s():
     user = request.args.get('user', None)
     if user in users:
         import os
-        os.system('python /home/ciss450othello/game_runner.py 1 0 > game_runner.py.out')
-        return open('/home/ciss450othello/game_runner.py.out', 'r').read()
+        os.system('python /home/ciss450othello2/game_runner.py 1 0 > game_runner.py.out')
+        return open('/home/ciss450othello2/game_runner.py.out', 'r').read()
     else:
         return "ERROR"
