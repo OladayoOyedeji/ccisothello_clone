@@ -1,0 +1,140 @@
+
+
+
+body{
+font-family: Arial;
+}
+
+.header {
+font-family: Arial Black, Arial;
+font-weight: 900;
+font-size:2em;
+background-color:#000000;
+color:white;
+padding:10px;
+}
+.footer{
+background-color:#000000;
+color:white;
+padding:10px;
+font-size:80%;
+}
+.menubar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.lbar {
+  float: left;
+}
+
+.lbar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.lbar a:hover {
+  background-color: #111;
+}
+
+.rbar{
+  float: right;
+}
+
+.rbar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.rbar a:hover {
+  background-color: #111;
+}
+
+.breadcrumbs{
+background-color:#e0e0e0;
+padding:10px;
+font-size:90%;
+}
+.breadcrumb{
+display:inline;
+}
+.flash{
+padding: 0em;
+}
+.flash_info{
+padding:10px;
+background-color: #e6f2ff;
+}
+.flash_error{
+padding:10px;
+background-color: red;
+color: white;
+font-weight: bold;
+}
+.flash_warning{
+padding:10px;
+background-color: #ff8080;
+}
+.flash_success{
+padding:10px;
+background-color: #66ff66;
+}
+.pagetitle{
+padding:10px;
+font-size:180%;
+font-weight:bold;
+}
+.form{
+background-color:#e0e0e0;
+padding:2em;
+display:inline-block;
+border-style:solid;
+border-width:1px;
+border-color:#a0a0a0;
+}
+
+
+
+table{
+border-spacing: 1px;
+}
+.fielderror{ /* field validation errors */
+color: red;
+font-size: 80%;
+}
+
+.matches-table, .stats-table {
+  border: solid thin;
+  border-collapse: collapse;
+}
+
+.matches-table th, .stats-table th {
+  border: solid thin;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.matches-table td, .stats-table td {
+  border: solid thin;
+  padding: 0.5rem 2rem;
+  white-space: nowrap;
+  font-weight: normal;
+  border-style: dotted solid;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.matches-table tbody td:first-child::after {
+  content: leader(". "); '
+}
+

@@ -1,0 +1,74 @@
+<!-- emailbase.html -->
+
+<html>
+
+  <head>
+
+    <!-- HEAD -->
+    {% block head %}
+    <title>
+    {% if title %}
+      {{ title }}
+    {% else %}
+      [MISSING TITLE]
+    {% endif %}
+   </title>
+
+   <link rel='stylesheet' type='text/css' href="/styles/style.css">
+
+   {% endblock %}
+
+  </head>
+
+  <body>
+
+  <!-- HEADER -->
+  {% block header %}
+  <div class='header' style='font-family: Arial Black, Arial;
+font-weight: 900;
+font-size:2em;
+background-color:#000000; color:white; padding:0.5em
+'>
+    {% if title %}
+    {{ title }}
+    {% else %}
+    [MISSING TITLE]
+    {% endif %}
+  </div>
+  {% endblock %}
+
+  <!-- PAGE TITLE -->
+  <div id='pagetitle' class='pagetitle' style='padding:0.5em;
+font-size:180%;
+font-weight:bold;
+'>
+    {% if page_title %}
+    {{ page_title }}
+    {% else %}
+    [ MISSING PAGE TITLE ]
+    {% endif %}
+  </div>
+
+  <!-- BODY -->
+  <div id='main' style='padding:0.5em'>
+  {% block content %}
+  {% endblock %}
+  </div>
+
+  <!-- spacing -->
+  <div style='padding 0.5em'>&nbsp;</div>
+
+
+  <!-- FOOTER -->
+  <div id='footer' class='footer' style='background-color:#000000;
+color:white;
+padding:1em;
+font-size:80%;
+'>
+    {% block footer %}
+    &copy; copyright {{ config['COPYRIGHT'] }} {{ config['AUTHOR'] }}
+    {% endblock %}
+  </div>
+
+  </body>
+</html>

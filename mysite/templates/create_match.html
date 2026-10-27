@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<center>
+Current CPU usage: {{ cpuusage }}
+</center>
+<br>
+
+<center>
+  <div class="form">
+    <form action="{{ action }}" method="POST" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>
+            Game
+          </td>
+          <td>
+            <select name="game">
+              {% for game in games %}
+              <option value="{{ game.id }}">{{ game.name }}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Board dimensions (max of 10 for now):
+          </td>
+          <td>
+            <input type="number" name="board-size" min="2" max="10" value="8" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Time Limit (in milliseconds)
+          </td>
+          <td>
+            <input type="number" name="max-time-limit-ms" value="300000" />
+          </td>
+        </tr>
+        <tr>
+            <td>
+              Player One
+            </td>
+            <td>
+              <select name="player-one">
+                {% for AI in AIs %}
+                <option value="{{ AI.id }}">{{ AI.name }}</option>
+                {% endfor %}
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              Player Two
+            </td>
+            <td>
+              <select name="player-two">
+                {% for AI in AIs %}
+                <option value="{{ AI.id }}">{{ AI.name }}</option>
+                {% endfor %}
+              </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                <center><input type="submit" /></center>
+            </td>
+        </tr>
+      </table>
+    </form>
+    FOR FALL 2020:
+    <ul>
+        <li>For 6x6 board, set time to 150000</li>
+        <li>For 8x8 board, set time to 150000 or 180000</li>
+    </ul>
+  </div>
+</center>
+
+{% endblock %}

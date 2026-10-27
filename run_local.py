@@ -1,5 +1,5 @@
-import __builtin__
-__builtin__.running_locally = True
+import builtins
+builtins.running_locally = True
 
 from mysite import app
 

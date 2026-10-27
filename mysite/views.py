@@ -14,7 +14,8 @@ from mysite import app, db, session
 
 from flask import request
 from flask import render_template
-from flask import flash, redirect, url_for, escape, Markup, send_from_directory, send_file
+from flask import flash, redirect, url_for, send_from_directory, send_file
+from markupsafe import escape, Markup
 
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -26,10 +27,10 @@ from .forms import RegistrationCodeForm, NewPasswordForm, AddToSectionForm
 from .models import User, ResetPassword, Registration, Session, Match, AI, Game, Stats # 12/11/2024, added Stats
 
 import sys; sys.path.append('/home/ciss450othello2/mysite/') # ?????? why cannot find db_util
-import db_util
+from mysite import db_util
 
 # utility functions
-import util
+from mysite import util
 from .util import randstring, hashfunc, sendemail, extract_emails
 
 game_runner_path = os.path.join(app.config['BASEDIR'], '..', 'game_runner.sh')

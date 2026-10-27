@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <a href={{ url_for('match', match_id=match.id) }}>{{match.id}}</a>
+  </td>
+  <td>
+    <a href={{ url_for('ai', ai_id=Player_one.id) }}>
+      {{Player_one.name}} ({{Player_one.owner.user}})
+    </a>
+  </td>
+  <td>
+    <a href={{ url_for('ai', ai_id=Player_two.id) }}>
+      {{Player_two.name}} ({{Player_two.owner.user}})
+    </a>
+  </td>
+  <td> {{match.result}} </td>
+  <td> {{match.start_time}} </td>
+  <td> {{match.board_size}} </td>
+  <td> {{match.max_time_limit_ms}} </td>
+</tr>

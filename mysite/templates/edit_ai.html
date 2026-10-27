@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <center>
+        <div class="form">
+            <form action="{{ action }}" method="POST" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td>
+                            Game
+                        </td>
+                        <td>
+                            <select name="game" selected="{{ ai.game_id }}">
+                                {% for game in games %}
+                                    <option value="{{ game.id }}">{{ game.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            <input type="text" name="name" value="{{ ai.name }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Description
+                        </td>
+                        <td>
+                            <textarea name="description">{{ ai.description }}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            File
+                        </td>
+                        <td>
+                            <input type="file" name="file" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </center>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="game_report">
+      	<a href="{{ url_for('index') }}">&lt;&lt; Return to Home</a>
+	<h1><span id="board_n">{{ match.board_size }}</span> x {{ match.board_size }} {{ game.name }}</h1>
+	<h1>{{ player_one.name }} (B) vs {{ player_two.name }} (W)</h1>
+	<h1>Result: {{ result_str }}</h1>
+      </div>
+      <div id="game">
+        <canvas id="game_canvas"></canvas>
+      </div>
+      <div id="moves">
+      	<div id="playback_controls">
+      	  Speed: <input type="number" id="speed_millis" value="1000" />
+      	  <button class="playback_control" id="start">|&lt;&lt;</button>
+      	  <button class="playback_control" id="backwards">-1</button>
+      	  <button class="playback_control" id="prev">&lt;</button>
+      	  <button class="playback_control" id="play">Play</button>
+      	  <button class="playback_control" id="stop">Stop</button>
+      	  <button class="playback_control" id="next">&gt;</button>
+      	  <button class="playback_control" id="forwards">1</button>
+      	  <button class="playback_control" id="end">&gt;&gt;|</button>
+      	</div>
+      	<div id="move_history">
+	  {% for move_tup in board_states %}
+	  <button class="accordion">
+	    <span class="move">{{ move_tup[0] }}</span>	
+	    <span class="arrow" style="float: right;">&gt;</span>
+	  </button>
+	  <div class="panel">
+	    <p>
+        <mystyle>
+{{ move_tup[1] | safe }}
+        </mystyle>
+	    </p>
+	  </div>
+	  {% endfor %}
+          
+          {% if error %}
+          <div>
+            <p>
+              <mystyle>
+                {{ error }}
+              </mystyle>
+            </p>
+          </div>
+          {% endif %}
+	</div>
+      </div>
+    </div>
+
+    <script>
+     {{ game_draw_script | safe }}
+    </script>
+  </body>
+</html>

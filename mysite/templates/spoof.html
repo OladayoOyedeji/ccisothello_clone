@@ -1,0 +1,12 @@
+<!-- templates/login.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <form action="{{ action }}" method="POST">
+        <input type="text" name="user" value="">
+        <input type="submit">
+    </form>
+</center>
+{% endblock %}

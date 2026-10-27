@@ -1,0 +1,28 @@
+<!-- templates/ais.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{{ action }}" method="POST">
+  <input type="text" name="search" value="">
+  <input type="submit">
+</form>
+<h2>AIs matching your query:</h2>
+<table>
+  <tr> <th>Name</th> <th>Owner</th></tr>
+  {% for item in ais %}
+  {% set ai = item['ai'] %}
+  {% set user = item['user'] %}
+  <tr>
+    <td>
+      <a href={{ url_for('ai', ai_id=ai.id) }}>{{ ai.name }} </a>
+    </td>
+    <td>
+      <a href={{ url_for('user', user_id=user.id) }}> {{ user.user }} </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

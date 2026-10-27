@@ -1,0 +1,39 @@
+<!-- templates/login.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+<div class='form'>
+  <form action="{{ action }}" method="post">
+    {{ form.hidden_tag() }}
+    
+    <table>
+      <tr>
+	<td>{{ form.user.label }}</td>
+	<td>{{ form.user }}</td>
+      </tr>
+      <tr>
+      <td>{{ form.password.label }}</td>
+      <td>{{ form.password }}</td>
+      </tr>
+      <tr>
+      <td>{{ form.remember_me.label }}</td>
+      <td>{{ form.remember_me() }}</td>
+      </tr>
+      <tr>
+	<td align=center colspan=2>
+	  <input type="submit" value="Go">
+	</td>
+      <tr>
+    </table>
+    <br><br>
+    <a href='{{ url_for('resetpassword') }}'>help! i forgot my password!</a> 
+    <br>
+    <a href='{{ url_for('register') }}'>help! i'm new!</a> 
+  </form>
+</div>
+</center>
+
+{% endblock %}

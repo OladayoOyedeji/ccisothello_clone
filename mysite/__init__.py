@@ -28,5 +28,5 @@ from mysite import views
 #==================================================================
 # Session
 #==================================================================
-from config import SESSION_SECRET_KEY
+from mysite.config import SESSION_SECRET_KEY
 app.secret_key = SESSION_SECRET_KEY # Check

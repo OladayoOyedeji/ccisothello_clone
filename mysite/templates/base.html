@@ -1,0 +1,146 @@
+<!-- base.html -->
+
+<html>
+
+  <head>
+
+    <!-- HEAD -->
+    {% block head %}
+    <title>
+      {% if title %}
+      {{ title }}
+      {% else %}
+      [MISSING TITLE]
+      {% endif %}
+    </title>
+
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='styles/style.css') }}">
+
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    {% block header %}
+    <div class='header'>
+      {% if title %}
+      {{ title }}
+      {% else %}
+      [MISSING TITLE]
+      {% endif %}
+    </div>
+    {% endblock %}
+
+    <!--<menubar>-->
+    <!--    <lbar><a href="/index">Home</a></lbar>-->
+    <!--    <lbar><a href="/matches">Matches</a></lbar>-->
+    <!--    <lbar><a href="/users">Users</a></lbar>-->
+    <!--    <lbar><a href="/ais">AIs</a></bar>-->
+
+
+    <!--</menubar>-->
+
+    <!-- BREADCRUMBS -->
+    <div id='menubar' class='menubar'>
+        <div class='lbar'><a href="/index">Home</a></div>
+        <div class='lbar'><a href="/matches">Matches</a></div>
+        <div class='lbar'><a href="/users">Users</a></div>
+        <div class='lbar'><a href="/ais">AIs</a></div>
+        {% if session['key'] %}
+            <div class='rbar'><a href="{{ url_for('logout') }}">logout</a></div>
+            <div class='rbar'><a href="/add_ai">Add AI</a></div>
+            <div class='rbar'><a href="/create_match">Create a Match</a></div>
+        {% endif %}
+        <div class='rbar'><a href="">Help</a></div>
+    </div>
+    <!--<div class='rbar'><a href="">help</a></div>-->
+
+    <!--  <div style='float:right'> <a href="{{ url_for('logout') }}">logout</a></div>-->
+
+      <!--<div class='breadcrumb'> </div>-->
+      <!--<div class='breadcrumb'></div>-->
+      <!--<div class='breadcrumb'> </div>-->
+      <!--<div class='breadcrumb'></div>-->
+      <!--<div class='breadcrumb'> </div>-->
+      <!--<div class='breadcrumb'></div>-->
+
+
+           <!--<div class='breadcrumb'>&nbsp; </div>-->
+           <!--<div class='breadcrumb'><a href="/index">classes</a></div>-->
+           <!--<div class='breadcrumb'>&nbsp; </div>-->
+           <!--<div class='breadcrumb'><a href="/index">ciss240</a></div>-->
+           <!--<div class='breadcrumb'>&nbsp; </div>-->
+           <!--<div class='breadcrumb'><a href="/index">notes</a></div>-->
+
+
+    <!--  <div style='float:right'><a href="{{ url_for('logout') }}">logout</a></div>-->
+    <!--  <div style='float:right'> </div>-->
+    <!--  <div style='float:right'><a href="/add_ai">Add AI</a></div>-->
+    <!--  <div style='float:right'>&nbsp;&nbsp; </div>-->
+    <!--  <div style='float:right'><a href="/create_match">Create a Match</a></div>-->
+
+    <!--  <div style='float:right'>&nbsp;&nbsp; </div>-->
+    <!--  <div style='float:right'><a href="">help</a></div>-->
+    <!--</div>-->
+
+
+    <!-- FLASH MESSAGE -->
+    <div id='flash' class='flash'>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class='flash_{{ category }}'>{{ message }}</div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+
+    <!-- PAGE TITLE -->
+    <div id='pagetitle' class='pagetitle'>
+      {% if page_title %}
+      {{ page_title }}
+      {% else %}
+      [ MISSING PAGE TITLE ]
+      {% endif %}
+    </div>
+
+    <!-- BODY -->
+    <div id='main' style='padding:0.5em'>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <!-- spacing -->
+    <div style='padding 0.5em'>&nbsp;</div>
+
+    <!-- DEBUG -->
+    {% if config.DEBUG %}
+    <div class='debug'>
+      <hr>
+      DEBUG:
+      <ul>
+        <li> Session:
+	  <ul>
+	    {% for key in session.keys() %}
+	    <li> {{ key }}: {{ session[key] }}
+	      {% endfor %}
+	  </ul>
+      </ul>>
+      <hr>
+    </div>
+    {% endif %}
+
+    <!-- FOOTER -->
+    <div id='footer' class='footer'>
+      {% block footer %}
+      &copy; copyright {{ config['COPYRIGHT'] }} {{ config['AUTHOR'] }}
+      {% endblock %}
+    </div>
+
+    {% block scripts %}
+    {% endblock %}
+
+  </body>
+</html>

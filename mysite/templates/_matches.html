@@ -1,0 +1,20 @@
+<table class="matches-table">
+  <thead>
+    <tr>
+      <th>Match ID</th>
+      <th>Black Player</th>
+      <th>White Player</th>
+      <th>Result</th>
+      <th>Created At</th>
+      <th>Board Size</th>
+      <th>Time Limit</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for match in matches | reverse %} <!-- 12/10/2024, New games now appear at the top, not the bottom. -->
+    {% set Player_one = match.Player_one %}
+    {% set Player_two = match.Player_two %}
+    {% include '_matches_row.html' %}
+    {% endfor %}
+  </tbody>
+</table>

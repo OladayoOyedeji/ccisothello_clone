@@ -1,0 +1,44 @@
+<!-- templates/registrationconfirmation.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+Please check your email for the registration code and 
+complete your registration.
+You can entry the code manually or click on the
+URL link in the email.
+The registration code is valid for {{ DTIME_FOR_REGISTRATION }} 
+hh:mm:ss.                                                      
+
+<br><br>
+
+<center>
+<div class='form'>
+  <form action="{{ action }}", method='post'>
+    <table>
+      <tr>
+	<td>{{ form.user.label }}</td>
+	<td>{{ form.user(size=30) }}</td>
+      </tr>
+      <tr>
+	<td>{{ form.email.label }}</td>
+	<td>{{ form.email(size=30) }}</td>
+      </tr>
+      <tr>
+	<td>{{ form.code.label }}</td>
+	<td>{{ form.code(size=30) }}</td>
+      </tr>
+      <tr>
+	<td colspan='2' align=center>
+	  <input type='submit' value='Go'/>
+	</td>
+      </tr>
+
+    </table>
+</form>
+</div>
+</center>
+
+{% endblock %}

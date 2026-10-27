@@ -1,0 +1,26 @@
+<!-- templates/login.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{{ action }}" method="POST">
+  <input type="text" name="search" value="">
+  <input type="submit">
+</form>
+<table>
+  <tr> <th> Matching AIs</th> <th> owner</th></tr>
+  {% for ai in ais %}
+  <tr><td><a href="ais/{{ ai[0].id }}"> {{ ai[0].name }} </a></td> <td> {{ ai[1].user}} </td></tr>
+  {% endfor %}
+</table>
+<table>
+  <tr> <th> Matching Users</th> </tr>
+  {% for user in users %}
+  <tr>
+    <td>
+      <a href={{ url_for('user', user_id=user.id) }}> {{ user.user }} </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

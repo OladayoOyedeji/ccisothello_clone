@@ -1,0 +1,22 @@
+<!-- templates/login.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{{ action }}" method="POST">
+  <input type="text" name="search" value="">
+  <input type="submit">
+</form>
+<h2>Users matching your query:</h2>
+<table>
+  {% for user in users %}
+  <tr>
+    <td>
+      <a href={{ url_for('user', user_id=user.id) }}> {{ user.user }} </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

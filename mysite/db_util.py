@@ -19,13 +19,13 @@ from sqlalchemy.orm.exc import NoResultFound
 from flask import flash
 
 from mysite import app, db, session
-from config import SESSION_KEY_LENGTH
+from mysite.config import SESSION_KEY_LENGTH
 
 # utility functions
-from util import randstring, hashfunc
+from mysite.util import randstring, hashfunc
 from werkzeug.utils import secure_filename
 
-from models import User, ResetPassword, Registration, Session, AI, Game, Match, Stats
+from mysite.models import User, ResetPassword, Registration, Session, AI, Game, Match, Stats
 
 def do_commit(commit):
     if commit: db.session.commit()

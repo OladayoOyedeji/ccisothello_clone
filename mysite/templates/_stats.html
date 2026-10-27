@@ -1,0 +1,18 @@
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Wins </th>
+      <th> Losses </th>
+      <th> Ties </th>
+      <th> Timeouts </th>
+      <th> Illegals </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ai in ais %}
+    {% set stats = ai.stats %}
+    {% include '_stats_row.html' %}
+    {% endfor %}
+  </tbody>
+</table>

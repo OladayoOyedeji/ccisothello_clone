@@ -1,0 +1,100 @@
+<!-- templates/registrationcodeemail.html -->
+
+{% extends "emailbase.html" %}
+
+{% block content %}
+
+
+<!-- from style.css -->
+<style>
+body{
+font-family: Arial; 
+}
+.header { 
+font-family: Arial Black, Arial;
+font-weight: 900;
+font-size:2em;
+background-color:#000000; 
+color:white; 
+padding:10px;
+}
+.footer{
+background-color:#000000;
+color:white;
+padding:10px;
+font-size:80%;
+}
+.breadcrumbs{
+background-color:#e0e0e0; 
+padding:10px; 
+font-size:90%;
+}
+.breadcrumb{
+display:inline;
+}
+.flash{
+padding: 0em; 
+}
+.flash_info{
+padding:10px;
+background-color: #e6f2ff;
+}
+.flash_error{
+padding:10px;
+background-color: red; 
+color: white;
+font-weight: bold;
+}
+.flash_warning{
+padding:10px;
+background-color: #ff8080;
+}
+.flash_success{
+padding:10px;
+background-color: #66ff66;
+}
+.pagetitle{
+padding:10px;
+font-size:180%;
+font-weight:bold;
+}
+.form{
+background-color:#e0e0e0; 
+padding:2em; 
+display:inline-block;
+border-style:solid;
+border-width:1px;
+border-color:#a0a0a0; 
+}
+table{ 
+border-spacing: 1px;
+}
+.fielderror{ /* field validation errors */
+color: red;
+font-size: 80%;
+}
+</style>
+
+
+
+We have received your registration.
+To complete the registration go to
+<a href='{{ url }}'>{{ url }}</a>
+and enter the code below.
+The registration code is valid for {{ DTIME_FOR_REGISTRATION }} 
+hh:mm:ss.                                                      
+
+
+<center>
+<div class='form'>
+
+user: {{ user }}
+<br>
+email: {{ email }}
+<br>
+code: {{ code }}
+
+</div>
+</center>
+
+{% endblock %}
