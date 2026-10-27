@@ -112,7 +112,7 @@ def drop_everything(db):
 
     return metadata
 
-yorn = raw_input("clear tables? [y/n]: ")
+yorn = input("clear tables? [y/n]: ")
 if yorn == 'y':
     datapath = "rm -rf '{}/data'/*".format(base_path)
     print (datapath)
