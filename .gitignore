@@ -1,1 +1,23 @@
-*__pycache__
+# Python cache directories
+__pycache__/
+**/__pycache__/
+
+# Compiled Python files
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Local database files
+*.sqlite3
+*.db
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
