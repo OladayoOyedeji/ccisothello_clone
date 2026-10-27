@@ -125,8 +125,9 @@ if yorn == 'y':
         drop_everything(db)
     #--------------------------------------------------------------------------
     else:
-        db.drop_all()
-    db.session.commit()
+        with app.app_context():
+            db.drop_all()
+            db.session.commit()
     print ("Run again and choose 'n' to get the data back up.")
     exit()
 

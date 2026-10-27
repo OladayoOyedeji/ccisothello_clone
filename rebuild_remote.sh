@@ -1,3 +1,3 @@
-source ~/.virtualenvs/myvirtualenv/bin/activate
+source .venv/bin/activate
 pip install -r requirements.txt
-python rebuild_remote.py $1
+python rebuild_remote.py
