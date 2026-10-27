@@ -27,10 +27,10 @@ from .forms import RegistrationCodeForm, NewPasswordForm, AddToSectionForm
 from .models import User, ResetPassword, Registration, Session, Match, AI, Game, Stats # 12/11/2024, added Stats
 
 import sys; sys.path.append('/home/ciss450othello2/mysite/') # ?????? why cannot find db_util
-from mysite import db_util
+import db_util
 
 # utility functions
-from mysite import util
+import util
 from .util import randstring, hashfunc, sendemail, extract_emails
 
 game_runner_path = os.path.join(app.config['BASEDIR'], '..', 'game_runner.sh')
